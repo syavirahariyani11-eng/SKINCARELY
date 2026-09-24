@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinCarely — Kenali Kulitmu, Rawat dengan Tepat</title>
+    <style>
+        /* Efek Scroll Mulus & Dasar Tampilan */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 20px;
+        }
+        /* Style Tombol Navigasi dengan Efek Hover */
+        .btn-nav {
+            background-color: #ffb7c5;
+            color: #4a4a4a;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            margin: 4px;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-nav:hover {
+            background-color: #d63384;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(214, 51, 132, 0.2);
+        }
+        /* Style Kartu Konten */
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        /* Style Tabel Kandungan */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #fff9fa;
+        }
+        /* Label Kuis Interaktif */
+        .quiz-option {
+            display: block;
+            background-color: #fff0f3;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border: 1px solid #ffd6e0;
+        }
+        .quiz-option:hover {
+            background-color: #ffe6ea;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Judul Utama -->
+    <header style="padding: 20px 20px 10px 20px;">
+        <h1 style="color: #d63384; font-size: 38px; margin-bottom: 5px;">SkinCarely</h1>
+        <p style="font-size: 18px; color: #883a56;"><strong>Kenali Kulitmu, Rawat dengan Tepat ✨</strong></p>
+        <p style="color: #666; max-width: 500px; margin: 0 auto;">Informasi dan edukasi praktis untuk membantu kamu memahami serta merawat kesehatan kulit sehari-hari.</p>
+        <p style="color: #ed68a4; max-width: 500px; margin: 0 auto;">KLINIK KECANTIKAN POLITEKNIK KESEHATAN JEMBER</p>
+    </header>
+
+    <!-- Tombol Navigasi Utama -->
+    <nav style="margin: 25px 0;">
+        <a href="#beranda" class="btn-nav">Beranda</a>
+        <a href="#jenis-kulit" class="btn-nav">Jenis Kulit</a>
+        <a href="#basic-skincare" class="btn-nav">Basic Skincare</a>
+        <a href="#kandungan" class="btn-nav">Kandungan</a>
+        <a href="#kesalahan" class="btn-nav">Edukasi</a>
+    </nav>
+
+    <main style="max-width: 700px; margin: 0 auto; text-align: left;">
+        
+        <!-- Bagian 1: Beranda -->
+        <section id="beranda">
+            <!-- Banner Bergambar Estetik -->
+            <div style="position: relative; border-radius: 15px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1000&q=80" alt="Skincare Banner" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                <div style="position: absolute; bottom: 0; background: linear-gradient(transparent, rgba(194, 37, 92, 0.8)); width: 100%; padding: 20px; box-sizing: border-box; color: white; text-align: center;">
+                    <h2 style="margin: 0; font-size: 22px;">✨ "Healthy Skin Starts with Healthy Habits" ✨</h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #d63384; margin-top: 0;">🌸 Apa Itu Kesehatan Kulit?</h3>
+                <p style="line-height: 1.6;">Kesehatan kulit bukan cuma soal tampil glowing, tapi tentang menjaga lapisan terluar tubuh (<em>skin barrier</em>) agar tetap kuat menahan kotoran, bakteri, dan paparan sinar matahari.</p>
+
+                <h3 style="color: lch(59.33% 59.88 151.49);">💡 Kenapa Merawat Kulit Itu Penting?</h3>
+                <ul style="line-height: 1.8;">
+                    <li>Mencegah penuaan dini dan masalah kulit jangka panjang.</li>
+                    <li>Menjaga kelembapan alami kulit agar tidak gampang iritasi.</li>
+                    <li>Meningkatkan rasa percaya diri setiap hari!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Bagian 2: Kenali Jenis Kulit & Kuis -->
+        <section id="jenis-kulit" class="card">
+            <h2 style="color: #d63384; margin-top: 0;">🔍 Kenali 5 Jenis Kulit</h2>
+            <ul style="line-height: 1.8;">
+                <li><strong>Normal:</strong> Seimbang, tidak terlalu berminyak maupun kering.</li>
+                <li><strong>Kering:</strong> Terasa kaku, kasar, atau kadang bersisik.</li>
+                <li><strong>Berminyak:</strong> Mengilap di seluruh wajah, pori-pori tampak besar.</li>
+                <li><strong>Kombinasi:</strong> Berminyak di area T-zone (dahi, hidung, dagu), tapi kering di pipi.</li>
+                <li><strong>Sensitif:</strong> Mudah kemerahan, gatal, atau perih saat mencoba produk baru.</li>
+            </ul>
+
+            <hr style="border: 0; border-top: 1px solid #ffe6ea; margin: 25px 0;">
+
+            <!-- Kuis Sederhana Interaktif -->
+            <h3 style="color: #c2255c;">📝 Kuis Cepat: Apa Jenis Kulitmu?</h3>
+            <p><em>Setelah mencuci wajah dan tidak menggunakan skincare selama beberapa jam, bagaimana kondisi kulitmu?</em></p>
+            
+            <form style="line-height: 1.5;">
+                <label class="quiz-option">
+                    <input type="radio" name="kulit" onclick="cekHasil('Normal', 'Kulitmu seimbang! Gunakan cleanser lembut dan moisturizer ringan.')">
+                    <strong> Normal:</strong> Terasa nyaman dan biasa saja
+                </label>
+                
+                <label class="quiz-option">
+                    <input type="radio" name="kulit" onclick="cekHasil('Kering', 'Kulitmu butuh hidrasi ekstra! Pakai moisturizer tebal dan kurangi eksfoliasi.')">
+                    <strong> Kering:</strong> Terasa tertarik, kaku, dan agak gatal
+                </label>
+                
+                <label class="quiz-option">
+                    <input type="radio" name="kulit" onclick="cekHasil('Berminyak', 'Fokus pada kontrol minyak! Pakai moisturizer gel & produk berkandungan Salicylic Acid.')">
+                    <strong> Berminyak:</strong> Sangat mengilap dan berminyak di seluruh wajah
+                </label>
+                
+                <label class="quiz-option">
+                    <input type="radio" name="kulit" onclick="cekHasil('Kombinasi', 'Kombinasi T-zone berminyak! Gunakan produk ringan berbasis air/gel.')">
+                    <strong> Kombinasi:</strong> Berminyak di dahi & hidung, tapi pipi terasa kering
+                </label>
+                
+                <label class="quiz-option">
+                    <input type="radio" name="kulit" onclick="cekHasil('Sensitif', 'Kulitmu sensitif! Hindari parfum, alkohol, dan pilih produk berkandungan Ceramide.')">
+                    <strong> Sensitif:</strong> Mudah kemerahan, perih, atau terasa panas
+                </label>
+            </form>
+
+            <!-- Kotak Hasil Kuis -->
+            <div id="hasil-kuis" style="display: none; margin-top: 20px; padding: 18px; background-color: #ffe6ea; border-radius: 12px; border-left: 6px solid #d63384;">
+                <h4 id="judul-hasil" style="margin: 0; color: #c2255c; font-size: 18px;"></h4>
+                <p id="teks-hasil" style="margin: 8px 0 0 0; color: #4a4a4a; line-height: 1.5;"></p>
+            </div>
+        </section>
+
+        <!-- Bagian 3: Basic Skincare & Sunscreen -->
+        <section id="basic-skincare" class="card">
+            <h2 style="color: #d63384; margin-top: 0;">🧴 Basic Skincare & Sunscreen</h2>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                <div style="flex: 1; background-color: #fff0f3; padding: 15px; border-radius: 10px; min-width: 200px;">
+                    <h3 style="color: #c2255c; margin-top: 0;">☀️ Pagi Hari</h3>
+                    <p style="margin: 0;">Cleanser ➔ Moisturizer ➔ Sunscreen</p>
+                </div>
+                <div style="flex: 1; background-color: #fff0f3; padding: 15px; border-radius: 10px; min-width: 200px;">
+                    <h3 style="color: #c2255c; margin-top: 0;">🌙 Malam Hari</h3>
+                    <p style="margin: 0;">Cleanser ➔ Treatment/Serum ➔ Moisturizer</p>
+                </div>
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid #ffe6ea; margin: 20px 0;">
+            
+            <h3 style="color: #d63384; margin-top: 0;">☀️ Pentingnya Sunscreen</h3>
+            <ul style="line-height: 1.8;">
+                <li><strong>SPF (Sun Protection Factor):</strong> Melindungi kulit dari paparan sinar UV B (penyebab kulit terbakar/sunburn).</li>
+                <li><strong>PA (Protection Grade of UVA):</strong> Melindungi kulit dari UV A (penyebab penuaan dini & flek hitam).</li>
+            </ul>
+            <p style="background-color: #fff0f3; padding: 10px 15px; border-radius: 8px; font-size: 14px;">💡 <em>Tips: Gunakan sebanyak 2 ruas jari dan reapply setiap 2-3 jam sekali saat beraktivitas di luar ruangan.</em></p>
+        </section>
+
+        <!-- Bagian 4: Kenali Kandungan Skincare -->
+        <section id="kandungan" class="card">
+            <h2 style="color: #d63384; margin-top: 0;">🧪 Kenali Kandungan Skincare</h2>
+            <p>Bahan aktif populer beserta manfaatutamanya:</p>
+            
+            <table>
+                <thead>
+                    <tr style="background-color: #ffccd5; color: #c2255c;">
+                        <th style="border-radius: 8px 0 0 8px;">Kandungan</th>
+                        <th style="border-radius: 0 8px 8px 0;">Fungsi Utama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Niacinamide</strong></td>
+                        <td>Memperbaiki skin barrier & mengontrol sebum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Salicylic Acid (BHA)</strong></td>
+                        <td>Mengatasi komedo & kulit berjerawat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hyaluronic Acid</strong></td>
+                        <td>Menjaga hidrasi & kelembapan kulit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vitamin C</strong></td>
+                        <td>Antioksidan & mencerahkan kulit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ceramide</strong></td>
+                        <td>Menjaga & memperkuat skin barrier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AHA</strong></td>
+                        <td>Membantu eksfoliasi sel kulit mati</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Retinoid</strong></td>
+                        <td>Mengatasi jerawat & tekstur kulit</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Bagian 5: Kesalahan Skincare & Edukasi -->
+        <section id="kesalahan" class="card">
+            <h2 style="color: #d63384; margin-top: 0;">⚠️ Kesalahan Umum dalam Skincare</h2>
+            <ul style="line-height: 1.8;">
+                <li>Terlalu sering mencuci wajah (bikin kulit makin kering/berminyak).</li>
+                <li>Tidak menggunakan sunscreen setiap hari.</li>
+                <li>Menggunakan terlalu banyak produk baru sekaligus.</li>
+                <li>Eksfoliasi berlebihan (over-exfoliation).</li>
+                <li>Suka memencet jerawat sendiri.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="margin-top: 40px; padding: 20px; color: #888; font-size: 14px;">
+        <p>&copy; 2026 SkinCarely — Web Kesehatan Kulit Vira</p>
+    </footer>
+
+    <!-- JavaScript untuk Menampilkan Hasil Kuis -->
+    <script>
+        function cekHasil(jenis, sarannya) {
+            document.getElementById('hasil-kuis').style.display = 'block';
+            document.getElementById('judul-hasil').innerText = 'Jenis Kulitmu: ' + jenis;
+            document.getElementById('teks-hasil').innerText = sarannya;
+        }
+    </script>
+
+</body>
+</html>

@@ -9,65 +9,82 @@
             scroll-behavior: smooth;
         }
         body {
-            /* Background padang rumput & piknik bernuansa pastel */
-            background: linear-gradient(180deg, #d8f3dc 0%, #b7e4c7 40%, #eddcd2 80%, #fde2e4 100%);
+            /* Background pola piknik pink & rumput manis */
+            background: #d8f3dc linear-gradient(180deg, #fde2e4 0%, #b7e4c7 50%, #d8f3dc 100%);
             font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
             text-align: center;
             color: #4a3b32;
             margin: 0;
-            padding: 0 15px 40px 15px;
+            padding: 0 0 50px 0;
         }
 
-        /* Container Utama */
-        .wrapper {
-            max-width: 750px;
+        .container {
+            max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            padding: 0 10px;
         }
 
-        /* Gambar Banner Canva Kamu di Paling Atas */
-        .canva-header img {
+        /* BANNER CANVA + NAVBAR BISA DIKLIK */
+        .canva-wrapper {
+            position: relative;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .canva-img {
             width: 100%;
             height: auto;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             display: block;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* Styling Kartu Tema Kayu & Kertas */
-        .card-wood {
-            background: #b5835a;
-            border: 4px solid #6e472a;
+        /* Area Tombol yang Bisa Diklik di Atas Gambar Canva */
+        .nav-link {
+            position: absolute;
+            top: 2.2%; /* Menyesuaikan posisi oval pink di header Canva */
+            height: 3.5%;
+            cursor: pointer;
             border-radius: 20px;
-            padding: 20px;
-            margin-top: 30px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            color: #fff;
-            text-shadow: 1px 1px 2px #422815;
+            /* background: rgba(255,0,0,0.2);  Uncomment untuk tes posisi jika perlu */
         }
+        .nav-beranda { left: 4%; width: 17%; }
+        .nav-jenis { left: 22%; width: 18%; }
+        .nav-basic { left: 41%; width: 20%; }
+        .nav-kandungan { left: 62%; width: 18%; }
+        .nav-edukasi { left: 81%; width: 15%; }
 
+        /* KARTU GAYA CANVA (KERTAS PINK & BUNGAN SAMA TERUSAN) */
         .card-paper {
             background-color: #fff0f3;
             border: 3px dashed #ffb3c1;
             border-radius: 25px;
-            padding: 25px;
-            margin-top: 30px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+            padding: 22px;
+            margin-top: 25px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
             text-align: left;
             position: relative;
         }
 
-        .card-paper h2, .card-paper h3 {
+        .card-paper h2 {
             color: #c2255c;
             text-shadow: none;
             margin-top: 0;
+            font-size: 20px;
+            text-align: center;
         }
 
-        /* Kuis Interaktif Gaya Kertas */
+        .card-paper h3 {
+            color: #d6336c;
+            font-size: 16px;
+        }
+
+        /* OPSI KUIS INTERAKTIF */
         .quiz-option {
             display: block;
             background-color: #ffffff;
-            padding: 12px 18px;
+            padding: 12px 15px;
             margin: 10px 0;
             border-radius: 15px;
             cursor: pointer;
@@ -75,13 +92,14 @@
             border: 2px solid #ffccd5;
             font-weight: bold;
             color: #5c3d46;
+            font-size: 14px;
         }
         .quiz-option:hover {
             background-color: #ffe6ea;
             transform: scale(1.02);
         }
 
-        /* Tabel Kandungan Gaya Vintage */
+        /* TABEL KANDUNGAN */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -89,58 +107,69 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
+            font-size: 14px;
         }
         th {
             background-color: #ffb3c1;
             color: #592d38;
-            padding: 12px;
-            font-size: 16px;
+            padding: 10px;
         }
         td {
-            padding: 12px;
+            padding: 10px;
             border-bottom: 1px dashed #ffccd5;
-            color: #4a3b32;
-        }
-        tr:nth-child(even) {
-            background-color: #fff0f3;
         }
 
-        /* Tips Box */
-        .tip-box {
-            background-color: #e8f5e9;
-            border-left: 5px solid #66bb6a;
-            padding: 12px 15px;
-            border-radius: 10px;
-            font-size: 14px;
-            color: #2e7d32;
-            margin-top: 15px;
+        /* CARD KAYU UNTUK EDUKASI */
+        .card-wood {
+            background: #b5835a;
+            border: 4px solid #6e472a;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 25px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            color: #fff;
+            text-shadow: 1px 1px 2px #422815;
+            text-align: left;
+        }
+
+        .card-wood h2 {
+            margin-top: 0;
+            color: #ffe6ea;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="container" id="beranda">
         
-        <!-- HEADER CANVA (BAGIAN ATAS SESUAI DESAINMU) -->
-        <div class="canva-header">
-            <img src="header.png" alt="Header Skincarely Canva">
+        <!-- HEADER GAMBAR CANVA + TOMBOL MENU ATAS BISA DIKLIK -->
+        <div class="canva-wrapper">
+            <img src="header.jpg" class="canva-img" alt="SkinCarely Canva Header">
+            
+            <!-- Link transparan di atas tombol oval Canva -->
+            <a href="#beranda" class="nav-link nav-beranda" title="Beranda"></a>
+            <a href="#jenis-kulit" class="nav-link nav-jenis" title="Jenis Kulit"></a>
+            <a href="#basic-skincare" class="nav-link nav-basic" title="Basic Skincare"></a>
+            <a href="#kandungan" class="nav-link nav-kandungan" title="Kandungan"></a>
+            <a href="#edukasi" class="nav-link nav-edukasi" title="Edukasi"></a>
         </div>
 
-        <!-- BAGIAN 2: KENALI JENIS KULIT & KUIS (MELANJUTKAN TEMA CANVA) -->
+        <!-- SECTION 1: KUIS JENIS KULIT (MELANJUTKAN DESAIN CANVA) -->
         <section id="jenis-kulit" class="card-paper">
             <h2>🌸 Kenali 5 Jenis Kulit</h2>
-            <ul style="line-height: 1.8;">
-                <li><strong>Normal:</strong> Seimbang, tidak terlalu berminyak maupun kering.</li>
+            <ul style="line-height: 1.8; font-size: 14px;">
+                <li><strong>Normal:</strong> Seimbang, tidak terlalu berminyak/kering.</li>
                 <li><strong>Kering:</strong> Terasa kaku, kasar, atau bersisik.</li>
-                <li><strong>Berminyak:</strong> Mengilap di seluruh wajah, pori-pori besar.</li>
-                <li><strong>Kombinasi:</strong> Berminyak di area T-zone, tapi kering di pipi.</li>
+                <li><strong>Berminyak:</strong> Mengilap di seluruh wajah, pori besar.</li>
+                <li><strong>Kombinasi:</strong> Berminyak T-zone, pipi kering.</li>
                 <li><strong>Sensitif:</strong> Mudah kemerahan, gatal, atau perih.</li>
             </ul>
 
-            <hr style="border: 0; border-top: 2px dashed #ffb3c1; margin: 20px 0;">
+            <hr style="border: 0; border-top: 2px dashed #ffb3c1; margin: 15px 0;">
 
             <h3 style="text-align: center;">📝 Kuis Cepat: Apa Jenis Kulitmu?</h3>
-            <p style="text-align: center; font-style: italic;">"Setelah cuci muka tanpa skincare beberapa jam, apa yang kamu rasakan?"</p>
+            <p style="text-align: center; font-style: italic; font-size: 13px;">"Setelah cuci muka tanpa skincare beberapa jam, apa yang kamu rasakan?"</p>
             
             <form>
                 <label class="quiz-option">
@@ -169,43 +198,41 @@
                 </label>
             </form>
 
-            <div id="hasil-kuis" style="display: none; margin-top: 20px; padding: 18px; background-color: #ffe6ea; border-radius: 15px; border: 2px solid #ff4d6d; text-align: center;">
-                <h4 id="judul-hasil" style="margin: 0; color: #c2255c; font-size: 18px;"></h4>
-                <p id="teks-hasil" style="margin: 8px 0 0 0; color: #4a4a4a;"></p>
+            <div id="hasil-kuis" style="display: none; margin-top: 15px; padding: 15px; background-color: #ffe6ea; border-radius: 15px; border: 2px solid #ff4d6d; text-align: center;">
+                <h4 id="judul-hasil" style="margin: 0; color: #c2255c; font-size: 16px;"></h4>
+                <p id="teks-hasil" style="margin: 5px 0 0 0; color: #4a4a4a; font-size: 13px;"></p>
             </div>
         </section>
 
-        <!-- BAGIAN 3: BASIC SKINCARE & SUNSCREEN -->
+        <!-- SECTION 2: BASIC SKINCARE -->
         <section id="basic-skincare" class="card-paper">
             <h2>🧴 Basic Skincare & Sunscreen</h2>
             
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
-                <div style="flex: 1; background: #fff; padding: 15px; border-radius: 15px; border: 2px solid #ffccd5; min-width: 200px;">
-                    <h3 style="font-size: 16px;">☀️ Pagi Hari</h3>
-                    <p style="margin: 0; font-size: 14px;">Cleanser ➔ Moisturizer ➔ Sunscreen</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
+                <div style="flex: 1; background: #fff; padding: 10px; border-radius: 12px; border: 2px solid #ffccd5; min-width: 140px;">
+                    <h3 style="margin:0 0 5px 0;">☀️ Pagi</h3>
+                    <p style="margin:0; font-size:12px;">Cleanser ➔ Moisturizer ➔ Sunscreen</p>
                 </div>
-                <div style="flex: 1; background: #fff; padding: 15px; border-radius: 15px; border: 2px solid #ffccd5; min-width: 200px;">
-                    <h3 style="font-size: 16px;">🌙 Malam Hari</h3>
-                    <p style="margin: 0; font-size: 14px;">Cleanser ➔ Treatment ➔ Moisturizer</p>
+                <div style="flex: 1; background: #fff; padding: 10px; border-radius: 12px; border: 2px solid #ffccd5; min-width: 140px;">
+                    <h3 style="margin:0 0 5px 0;">🌙 Malam</h3>
+                    <p style="margin:0; font-size:12px;">Cleanser ➔ Treatment ➔ Moisturizer</p>
                 </div>
             </div>
 
             <h3>☀️ Rahasia Sunscreen</h3>
-            <ul style="line-height: 1.6;">
+            <ul style="line-height: 1.6; font-size: 13px;">
                 <li><strong>SPF:</strong> Pelindung dari UV B (kulit terbakar/sunburn).</li>
                 <li><strong>PA:</strong> Pelindung dari UV A (penuaan dini & flek hitam).</li>
             </ul>
 
-            <div class="tip-box">
+            <div style="background-color: #e8f5e9; border-left: 4px solid #66bb6a; padding: 10px; border-radius: 8px; font-size: 12px; color: #2e7d32;">
                 💡 <strong>Tips Cantik:</strong> Gunakan sebanyak 2 ruas jari & reapply tiap 2-3 jam saat outdoor!
             </div>
         </section>
 
-        <!-- BAGIAN 4: KANDUNGAN SKINCARE -->
+        <!-- SECTION 3: KANDUNGAN SKINCARE -->
         <section id="kandungan" class="card-paper">
             <h2>🧪 Kandungan Bahan Aktif</h2>
-            <p>Pahami bahan skincare-mu agar hasil lebih maksimal:</p>
-            
             <table>
                 <thead>
                     <tr>
@@ -214,48 +241,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Niacinamide</strong></td>
-                        <td>Memperbaiki barrier & kontrol minyak</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Salicylic Acid</strong></td>
-                        <td>Mengatasi komedo & jerawat</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hyaluronic Acid</strong></td>
-                        <td>Hidrasi mendalam & mengenyalkan</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vitamin C</strong></td>
-                        <td>Mencerahkan & antioksidan</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ceramide</strong></td>
-                        <td>Memperkuat skin barrier</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Retinoid</strong></td>
-                        <td>Anti-aging & tekstur kulit</td>
-                    </tr>
+                    <tr><td><strong>Niacinamide</strong></td><td>Memperbaiki barrier & kontrol minyak</td></tr>
+                    <tr><td><strong>Salicylic Acid</strong></td><td>Mengatasi komedo & jerawat</td></tr>
+                    <tr><td><strong>Hyaluronic Acid</strong></td><td>Hidrasi mendalam & mengenyalkan</td></tr>
+                    <tr><td><strong>Vitamin C</strong></td><td>Mencerahkan & antioksidan</td></tr>
+                    <tr><td><strong>Ceramide</strong></td><td>Memperkuat skin barrier</td></tr>
+                    <tr><td><strong>Retinoid</strong></td><td>Anti-aging & tekstur kulit</td></tr>
                 </tbody>
             </table>
         </section>
 
-        <!-- BAGIAN 5: EDUKASI & KESALAHAN -->
-        <section id="kesalahan" class="card-wood">
-            <h2 style="margin-top:0; color:#ffe6ea;">⚠️ Hindari Kesalahan Ini!</h2>
-            <ul style="line-height: 1.8; text-align: left;">
-                <li>Mencuci muka terlalu sering (merusak kelembapan alami).</li>
-                <li>Skip sunscreen di siang hari.</li>
-                <li>Mencoba banyak produk baru dalam waktu bersamaan.</li>
-                <li>Suka memencet jerawat sendiri.</li>
+        <!-- SECTION 4: EDUKASI & KESALAHAN -->
+        <section id="edukasi" class="card-wood">
+            <h2>⚠️ Hindari Kesalahan Ini!</h2>
+            <ul style="line-height: 1.8; font-size: 14px;">
+                <li>Mencuci muka terlalu sering (bisa bikin kering & iritasi).</li>
+                <li>Suka skip sunscreen di siang hari.</li>
+                <li>Mencoba banyak produk baru sekaligus.</li>
+                <li>Sering memencet jerawat dengan tangan kotor.</li>
             </ul>
         </section>
 
         <!-- FOOTER -->
-        <footer style="margin-top: 30px; color: #6e472a; font-size: 14px; font-weight: bold;">
-            <p>&copy; 2026 SkinCarely — Klinik Kecantikan Politeknik Kesehatan Jember</p>
+        <footer style="margin-top: 25px; color: #5c3d46; font-size: 13px; font-weight: bold;">
+            <p>&copy; 2026 SkinCarely — Poltekkes Kemenkes Jember</p>
         </footer>
 
     </div>

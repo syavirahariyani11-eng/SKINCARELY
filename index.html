@@ -13,47 +13,48 @@
             padding: 0;
             font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
             color: #4a3b32;
-            background-color: #c0e0b0;
+            background-color: #1a1a1a; /* Background di luar layar HP */
         }
 
-        /* CONTAINER UTAMA DENGAN RUMPUT BERULANG SANGAT RAPI */
+        /* WADAH UTAMA WEBSITE */
         .page-container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
             position: relative;
-            /* Gambar Canva diulang ke bawah agar rumput menyambung terus */
-            background-image: url('header.jpg');
-            background-repeat: repeat-y;
-            background-size: 100% auto;
-            background-position: top center;
-            padding-bottom: 60px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            background-color: #98b688; /* Warna Sage Green */
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            min-height: 100vh;
         }
 
-        /* HEADER SPACER UNTUK AVALAN NAVIGASI */
-        .header-spacer {
+        /* BANNER HEADER ATAS */
+        .header-banner {
             width: 100%;
-            height: 120px;
+            height: 380px; /* Tinggi disesuaikan agar gambar terlihat utuh */
+            /* PASTIKAN NAMA FILE DI BAWAH SESUAI DENGAN FILE GAMBAR KAMU */
+            background-image: url('header.png'); 
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
             position: relative;
         }
 
-        /* TOMBOL OVAL ATAS DENGAN AREA KLIK SANGAT PRESISI */
+        /* NAVIGASI MENU TOMBOL DI ATAS BANNER */
         .nav-bar-container {
             position: absolute;
-            top: 25px;
+            top: 15px;
             left: 3%;
             width: 94%;
+            height: 40px;
             display: flex;
             justify-content: space-between;
-            height: 45px;
-            z-index: 999;
+            z-index: 99;
         }
 
         .nav-link {
             display: block;
             height: 100%;
             cursor: pointer;
-            border-radius: 20px;
+            border-radius: 15px;
         }
         .nav-beranda { width: 18%; }
         .nav-jenis { width: 19%; }
@@ -61,17 +62,19 @@
         .nav-kandungan { width: 19%; }
         .nav-edukasi { width: 18%; }
 
-        /* WADAH KONTEN: DIBERI PADDING TOP TINGGI AGAR PAPAN KAYU CANVA TERLIHAT JELAS */
+        /* WADAH KONTEN BAWAH BANNER */
         .content-wrapper {
-            padding: 310px 20px 30px 20px; /* 310px memberi ruang penuh untuk Papan Kayu Canva */
+            padding: 10px 16px 50px 16px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* KARTU WHITE BOARDING KONTEN ESTETIK */
+        /* KARTU KONTEN PUTIH ELEGAN */
         .card-box {
-            background: rgba(255, 255, 255, 0.93);
+            background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(4px);
             border: 2px dashed #ffb3c1;
             border-radius: 20px;
@@ -84,17 +87,17 @@
             color: #c2255c;
             margin-top: 0;
             margin-bottom: 12px;
-            font-size: 18px;
+            font-size: 17px;
             text-align: center;
         }
 
         .card-box h3 {
             color: #d6336c;
-            font-size: 14px;
+            font-size: 13.5px;
             margin: 12px 0 6px 0;
         }
 
-        /* OPSI KUIS RADIO BUTTON */
+        /* KUIS PILIHAN */
         .quiz-option {
             display: block;
             background-color: rgba(255, 240, 243, 0.95);
@@ -138,10 +141,10 @@
 
     <div class="page-container">
 
-        <!-- HEADER BANNER & NAVIGASI -->
-        <div class="header-spacer">
+        <!-- BANNER ATAS -->
+        <div class="header-banner">
             <div class="nav-bar-container">
-                <a href="#beranda" class="nav-link nav-beranda" title="Beranda"></a>
+                <a href="#kesehatan-kulit" class="nav-link nav-beranda" title="Beranda"></a>
                 <a href="#jenis-kulit" class="nav-link nav-jenis" title="Jenis Kulit"></a>
                 <a href="#basic-skincare" class="nav-link nav-basic" title="Basic Skincare"></a>
                 <a href="#kandungan" class="nav-link nav-kandungan" title="Kandungan"></a>
@@ -149,12 +152,12 @@
             </div>
         </div>
 
-        <!-- ISI KONTEN TERLETAK DI BAWAH PAPAN KAYU CANVA -->
+        <!-- KONTEN UTAMA WEBSITE -->
         <div class="content-wrapper">
 
-            <!-- BAGIAN 1: BERANDA -->
-            <section id="beranda" class="card-box">
-                <h2>🌿 Beranda: Kesehatan Kulit</h2>
+            <!-- BAGIAN 1: KESEHATAN KULIT -->
+            <section id="kesehatan-kulit" class="card-box">
+                <h2>🌿 Kesehatan Kulit</h2>
                 <div style="font-size: 12px; line-height: 1.6;">
                     <p style="margin-top: 0;"><strong>Apa itu Kesehatan Kulit?</strong><br>
                     Kesehatan kulit adalah kondisi di mana lapisan luar kulit (skin barrier) berfungsi secara optimal, terjaga kelembapannya, serta bebas dari peradangan, iritasi, maupun infeksi bakteri.</p>
@@ -277,8 +280,8 @@
                 </ul>
             </section>
 
-            <p style="font-size: 11px; font-weight: bold; color: #5c3d46; text-align: center; margin-top: 5px;">
-                &copy; 2026 SkinCarely — Poltekkes Kemenkes Jember
+            <p style="font-size: 11px; font-weight: bold; color: #ffffff; text-align: center; margin-top: 10px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                &copy; 2026 SkinCarely — Politeknik Kesehatan Jember
             </p>
 
         </div>

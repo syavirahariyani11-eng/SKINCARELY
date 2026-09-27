@@ -22,14 +22,13 @@
             padding-bottom: 40px;
         }
 
-        /* CONTAINER UTAMA LAPTOP */
+        /* CONTAINER UTAMA */
         .page-container {
             width: 100%;
             max-width: 680px;
             background-color: #fca1c6;
             box-shadow: 0 0 20px rgba(0,0,0,0.2);
             position: relative;
-            overflow: hidden;
         }
 
         /* BANNER GAMBAR UTAMA */
@@ -73,7 +72,7 @@
         .n-kandungan { width: 20%; }
         .n-edukasi { width: 18%; }
 
-        /* AREA KONTEN: DITARIK NAIK KE ATAS AGAR JARAK KOSONG HILANG TOTAL */
+        /* AREA KONTEN (LAPTOP & DEFAULT) */
         .content-container {
             position: relative;
             z-index: 10;
@@ -81,14 +80,26 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            /* PENYESUAIAN JARAK: Menarik konten ke atas melewati spasi kosong gambar */
-            margin-top: -845px; 
+            margin-top: -840px;
         }
-.content-container {
-    @media screen and (max-width; 600px) {
-        margin-top: -110px;
-    }
-}
+
+        /* KHUSUS UNTUK TAMPILAN HP */
+        @media screen and (max-width: 600px) {
+            .content-container {
+                margin-top: -90px !important;
+                padding: 0 12px 15px 12px;
+            }
+            .card {
+                padding: 14px;
+            }
+            .card-title {
+                font-size: 15px;
+            }
+            .card p, .card ul {
+                font-size: 12px;
+            }
+        }
+
         .card {
             background: #ffffff;
             border-radius: 18px;
@@ -182,9 +193,11 @@
 
     <div class="page-container">
 
+        <!-- GAMBAR BANNER UTAMA -->
         <div id="beranda" class="header-banner">
             <img src="background.png" alt="SkinCarely Banner Header">
 
+            <!-- AREA KLIK MENU ATAS -->
             <div class="nav-overlay">
                 <a href="#beranda" class="nav-link n-beranda" title="Beranda"></a>
                 <a href="#jenis-kulit" class="nav-link n-jenis" title="Jenis Kulit"></a>
@@ -194,8 +207,10 @@
             </div>
         </div>
 
+        <!-- BAGAN KONTEN & KUIS -->
         <div class="content-container">
 
+            <!-- KESEHATAN KULIT -->
             <div id="edukasi" class="card scroll-target">
                 <div class="card-title">🌿 Kesehatan Kulit</div>
                 <p><b>Apa itu Kesehatan Kulit?</b><br>
@@ -209,6 +224,7 @@
                 </ul>
             </div>
 
+            <!-- BASIC SKINCARE -->
             <div id="basic-skincare" class="card scroll-target">
                 <div class="card-title">🧴 Basic Skincare & Sunscreen</div>
                 <p><b>☀️ Pagi:</b> Cleanser ➔ Moisturizer ➔ Sunscreen</p>
@@ -221,6 +237,7 @@
                 </ul>
             </div>
 
+            <!-- JENIS KULIT -->
             <div id="jenis-kulit" class="card scroll-target">
                 <div class="card-title">🌸 Kenali 5 Jenis Kulit</div>
                 <ul>
@@ -232,6 +249,7 @@
                 </ul>
             </div>
 
+            <!-- KUIS INTERAKTIF -->
             <div class="card quiz-card">
                 <div class="card-title">📝 Kuis Cepat Jenis Kulit</div>
                 <p style="font-size: 11.5px; color: #7a525d; font-style: italic;">
@@ -262,6 +280,7 @@
                 </div>
             </div>
 
+            <!-- TABEL KANDUNGAN -->
             <div id="kandungan" class="card scroll-target">
                 <div class="card-title">🧪 Kandungan Bahan Aktif Skincare</div>
                 <table>
@@ -273,7 +292,7 @@
                     </thead>
                     <tbody>
                         <tr><td><strong>Niacinamide</strong></td><td>Memperbaiki barrier & kontrol minyak</td></tr>
-                        <tr><td><strong>Salicylic Acid (BHA)</strong></td><td>Eksfoliasi & meredakan jerawat</td></tr>
+                        <tr><td><strong>Salicylic Acid (BHA)</strong></td><td>Eksfoliation & meredakan jerawat</td></tr>
                         <tr><td><strong>Hyaluronic Acid</strong></td><td>Hidrasi mendalam & mengenyalkan</td></tr>
                         <tr><td><strong>Vitamin C</strong></td><td>Mencerahkan kulit & antioksidan</td></tr>
                         <tr><td><strong>Ceramide</strong></td><td>Memperkuat skin barrier yang rusak</td></tr>

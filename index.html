@@ -5,113 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkinCarely — Klinik Kecantikan Politeknik Kesehatan Jember</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         html {
             scroll-behavior: smooth;
         }
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fca1c6;
+            color: #4a3b32;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 40px;
+        }
+
+        /* CONTAINER UTAMA LAPTOP */
+        .page-container {
+            width: 100%;
+            max-width: 680px;
+            background-color: #fca1c6;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* BANNER GAMBAR UTAMA */
+        .header-banner {
+            width: 100%;
+            position: relative;
             margin: 0;
             padding: 0;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
-            color: #4a3b32;
-            background-color: #1a1a1a;
         }
-
-        /* WADAH UTAMA WEBSITE */
-        .page-container {
-            max-width: 500px;
-            margin: 0 auto;
-            position: relative;
-            background-color: #fca1c6; /* Pink sesuai warna gambar background */
-            box-shadow: 0 0 25px rgba(0,0,0,0.5);
-            min-height: 100vh;
-        }
-
-        /* BANNER HEADER ATAS DENGAN GAMBAR BACKGROUND */
-        .header-nav-space {
+        .header-banner img {
             width: 100%;
-            height: 360px;
-            background-image: url('background.png');
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-            background-position: top center;
-            position: relative;
+            height: auto;
+            display: block;
         }
 
-        /* AREA TOMBOL NAVIGASI KLIK PADA MENU OVAL */
-        .nav-bar-container {
+        /* NAVIGASI MENU TRANSPARAN OVAL DI ATAS GAMBAR */
+        .nav-overlay {
             position: absolute;
-            top: 28px;
-            left: 4%;
-            width: 92%;
-            height: 32px;
+            top: 2.2%;
+            left: 3%;
+            width: 94%;
+            height: 5.8%;
             display: flex;
             justify-content: space-between;
-            z-index: 99;
+            z-index: 100;
         }
 
         .nav-link {
             display: block;
             height: 100%;
+            border-radius: 20px;
             cursor: pointer;
-            border-radius: 15px;
         }
-        .nav-beranda { width: 17%; }
-        .nav-jenis { width: 19%; }
-        .nav-basic { width: 23%; }
-        .nav-kandungan { width: 20%; }
-        .nav-edukasi { width: 18%; }
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
 
-        /* WADAH KONTEN DI ATAS BACKGROUND PINK */
-        .content-wrapper {
-            padding: 10px 16px 50px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+        .n-beranda { width: 18%; }
+        .n-jenis { width: 19%; }
+        .n-basic { width: 22%; }
+        .n-kandungan { width: 20%; }
+        .n-edukasi { width: 18%; }
+
+        /* AREA KONTEN: DITARIK NAIK KE ATAS AGAR JARAK KOSONG HILANG TOTAL */
+        .content-container {
             position: relative;
             z-index: 10;
+            padding: 0 15px 20px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* PENYESUAIAN JARAK: Menarik konten ke atas melewati spasi kosong gambar */
+            margin-top: -845px; 
         }
 
-        /* KARTU KONTEN PUTIH ELEGAN */
-        .card-box {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(4px);
-            border: 2px dashed #ffb3c1;
-            border-radius: 20px;
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
             padding: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            text-align: left;
+            border: 2px dashed #ffb3c1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
 
-        .card-box h2 {
-            color: #c2255c;
-            margin-top: 0;
-            margin-bottom: 12px;
-            font-size: 17px;
-            text-align: center;
-        }
-
-        .card-box h3 {
-            color: #d6336c;
-            font-size: 13.5px;
-            margin: 12px 0 6px 0;
-        }
-
-        /* KUIS PILIHAN */
-        .quiz-option {
-            display: block;
-            background-color: rgba(255, 240, 243, 0.95);
-            padding: 10px 12px;
-            margin: 8px 0;
-            border-radius: 12px;
-            cursor: pointer;
-            border: 1.5px solid #ffccd5;
+        .card-title {
+            font-size: 16px;
             font-weight: bold;
+            color: #c2255c;
+            margin-bottom: 8px;
+        }
+
+        .card p, .card ul {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .card ul {
+            padding-left: 18px;
+        }
+
+        /* KUIS INTERAKTIF */
+        .quiz-card {
+            background: #fff0f4;
+            border: 2px solid #ff85a2;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quiz-btn {
+            background-color: #ffffff;
+            border: 2px solid #ffb6c1;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 12.5px;
+            font-weight: 600;
             color: #5c3d46;
-            font-size: 12px;
+            cursor: pointer;
             transition: 0.2s;
         }
-        .quiz-option:hover {
-            background-color: #ffe6ea;
+
+        .quiz-btn:hover {
+            background-color: #ff4d6d;
+            color: #ffffff;
+        }
+
+        #hasil-kuis {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 2px solid #ff4d6d;
+            text-align: center;
         }
 
         /* TABEL KANDUNGAN */
@@ -119,9 +156,6 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 8px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            overflow: hidden;
             font-size: 12px;
         }
         th {
@@ -134,118 +168,98 @@
             padding: 8px;
             border-bottom: 1px dashed #ffccd5;
         }
+
+        .scroll-target {
+            scroll-margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
     <div class="page-container">
 
-        <!-- AREA HEADER DENGAN TOMBOL KLIK MENU NAVIGASI OVAL -->
-        <div class="header-nav-space">
-            <div class="nav-bar-container">
-                <a href="#kesehatan-kulit" class="nav-link nav-beranda" title="Beranda"></a>
-                <a href="#jenis-kulit" class="nav-link nav-jenis" title="Jenis Kulit"></a>
-                <a href="#basic-skincare" class="nav-link nav-basic" title="Basic Skincare"></a>
-                <a href="#kandungan" class="nav-link nav-kandungan" title="Kandungan"></a>
-                <a href="#edukasi" class="nav-link nav-edukasi" title="Edukasi"></a>
+        <div id="beranda" class="header-banner">
+            <img src="background.png" alt="SkinCarely Banner Header">
+
+            <div class="nav-overlay">
+                <a href="#beranda" class="nav-link n-beranda" title="Beranda"></a>
+                <a href="#jenis-kulit" class="nav-link n-jenis" title="Jenis Kulit"></a>
+                <a href="#basic-skincare" class="nav-link n-basic" title="Basic Skincare"></a>
+                <a href="#kandungan" class="nav-link n-kandungan" title="Kandungan"></a>
+                <a href="#edukasi" class="nav-link n-edukasi" title="Edukasi"></a>
             </div>
         </div>
 
-        <!-- KONTEN UTAMA WEBSITE -->
-        <div class="content-wrapper">
+        <div class="content-container">
 
-            <!-- BAGIAN 1: KESEHATAN KULIT -->
-            <section id="kesehatan-kulit" class="card-box">
-                <h2>🌿 Kesehatan Kulit</h2>
-                <div style="font-size: 12px; line-height: 1.6;">
-                    <p style="margin-top: 0;"><strong>Apa itu Kesehatan Kulit?</strong><br>
-                    Kesehatan kulit adalah kondisi di mana lapisan luar kulit (skin barrier) berfungsi secara optimal, terjaga kelembapannya, serta bebas dari peradangan, iritasi, maupun infeksi bakteri.</p>
-                    
-                    <hr style="border: 0; border-top: 1.5px dashed #ffb3c1; margin: 10px 0;">
-
-                    <p style="margin-bottom: 0;"><strong>Mengapa Merawat Kulit Sangat Penting?</strong></p>
-                    <ul style="padding-left: 18px; margin: 5px 0 0 0;">
-                        <li><strong>Melindungi Tubuh:</strong> Barrier utama dari paparan polusi, kuman, dan paparan sinar UV.</li>
-                        <li><strong>Mencegah Masalah Kulit:</strong> Terhindar dari jerawat, flek hitam, dan penuaan dini.</li>
-                        <li><strong>Meningkatkan Rasa Percaya Diri:</strong> Kulit sehat bercahaya membuat penampilan lebih segar.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- BAGIAN 2: JENIS KULIT & KUIS -->
-            <section id="jenis-kulit" class="card-box">
-                <h2>🌸 Kenali 5 Jenis Kulit</h2>
-                <ul style="line-height: 1.6; font-size: 12px; padding-left: 18px; margin: 0;">
-                    <li><strong>Normal:</strong> Seimbang, tidak terlalu kering/berminyak.</li>
-                    <li><strong>Kering:</strong> Terasa kaku, kasar, atau bersisik.</li>
-                    <li><strong>Berminyak:</strong> Mengilap di seluruh wajah & pori besar.</li>
-                    <li><strong>Kombinasi:</strong> Berminyak T-zone, pipi cenderung kering.</li>
-                    <li><strong>Sensitif:</strong> Mudah kemerahan, gatal, atau perih.</li>
+            <div id="edukasi" class="card scroll-target">
+                <div class="card-title">🌿 Kesehatan Kulit</div>
+                <p><b>Apa itu Kesehatan Kulit?</b><br>
+                Kondisi di mana lapisan luar kulit (skin barrier) berfungsi optimal, terjaga kelembapannya, serta bebas iritasi.</p>
+                <br>
+                <p><b>Mengapa Merawat Kulit Sangat Penting?</b></p>
+                <ul>
+                    <li>Melindungi tubuh dari polusi, kuman & sinar UV.</li>
+                    <li>Mencegah jerawat & flek hitam.</li>
+                    <li>Meningkatkan rasa percaya diri.</li>
                 </ul>
+            </div>
 
-                <hr style="border: 0; border-top: 1.5px dashed #ffb3c1; margin: 12px 0;">
+            <div id="basic-skincare" class="card scroll-target">
+                <div class="card-title">🧴 Basic Skincare & Sunscreen</div>
+                <p><b>☀️ Pagi:</b> Cleanser ➔ Moisturizer ➔ Sunscreen</p>
+                <p><b>🌙 Malam:</b> Cleanser ➔ Treatment ➔ Moisturizer</p>
+                <br>
+                <p><b>💡 Rahasia Sunscreen:</b></p>
+                <ul>
+                    <li><b>SPF:</b> Melindungi dari UV B (mencegah kulit terbakar).</li>
+                    <li><b>PA:</b> Melindungi dari UV A (mencegah penuaan dini).</li>
+                </ul>
+            </div>
 
-                <h3 style="text-align: center; margin-bottom: 2px;">📝 Kuis Cepat Jenis Kulit</h3>
-                <p style="text-align: center; font-style: italic; font-size: 11px; margin-top: 0; color: #7a525d;">
+            <div id="jenis-kulit" class="card scroll-target">
+                <div class="card-title">🌸 Kenali 5 Jenis Kulit</div>
+                <ul>
+                    <li><b>Normal:</b> Seimbang, tidak terlalu kering/berminyak.</li>
+                    <li><b>Kering:</b> Terasa kaku, kasar, atau bersisik.</li>
+                    <li><b>Berminyak:</b> Mengilap di seluruh area wajah.</li>
+                    <li><b>Kombinasi:</b> Berminyak di T-zone, pipi kering.</li>
+                    <li><b>Sensitif:</b> Mudah kemerahan, gatal, atau perih.</li>
+                </ul>
+            </div>
+
+            <div class="card quiz-card">
+                <div class="card-title">📝 Kuis Cepat Jenis Kulit</div>
+                <p style="font-size: 11.5px; color: #7a525d; font-style: italic;">
                     "Setelah cuci muka tanpa skincare beberapa jam, apa yang kamu rasakan?"
                 </p>
                 
-                <form>
-                    <label class="quiz-option">
-                        <input type="radio" name="kulit" onclick="cekHasil('Normal 🌿', 'Kulitmu seimbang! Gunakan cleanser lembut & moisturizer ringan.')">
-                        🌿 Normal: Terasa biasa & nyaman-nyaman saja
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="kulit" onclick="cekHasil('Kering 💧', 'Butuh hidrasi ekstra! Pakai moisturizer tebal & ceramide.')">
-                        💧 Kering: Terasa tertarik, kaku, dan agak gatal
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="kulit" onclick="cekHasil('Berminyak ✨', 'Fokus kontrol minyak! Gunakan gel moisturizer & Salicylic Acid.')">
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="cekHasil('Normal 🌿', 'Kulitmu seimbang! Gunakan cleanser lembut & moisturizer ringan.')">
+                        🌿 Normal: Terasa biasa & nyaman saja
+                    </button>
+                    <button class="quiz-btn" onclick="cekHasil('Kering 💧', 'Butuh hidrasi ekstra! Pakai moisturizer tebal & ceramide.')">
+                        💧 Kering: Terasa tertarik, kaku, & agak gatal
+                    </button>
+                    <button class="quiz-btn" onclick="cekHasil('Berminyak ✨', 'Fokus kontrol minyak! Gunakan gel moisturizer & Salicylic Acid.')">
                         ✨ Berminyak: Mengilap di seluruh area wajah
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="kulit" onclick="cekHasil('Kombinasi 🍓', 'T-zone berminyak! Gunakan produk berbahan dasar air (water-based).')">
+                    </button>
+                    <button class="quiz-btn" onclick="cekHasil('Kombinasi 🍓', 'T-zone berminyak! Gunakan produk berbahan dasar air (water-based).')">
                         🍓 Kombinasi: Berminyak di T-zone, pipi kering
-                    </label>
-                    <label class="quiz-option">
-                        <input type="radio" name="kulit" onclick="cekHasil('Sensitif 🌷', 'Kulit sensitif! Hindari alkohol & parfum, utamakan yang soothing.')">
+                    </button>
+                    <button class="quiz-btn" onclick="cekHasil('Sensitif 🌷', 'Kulit sensitif! Hindari alkohol & parfum, utamakan yang soothing.')">
                         🌷 Sensitif: Mudah kemerahan atau terasa perih
-                    </label>
-                </form>
-
-                <div id="hasil-kuis" style="display: none; margin-top: 10px; padding: 10px; background-color: #ffe6ea; border-radius: 12px; border: 1.5px solid #ff4d6d; text-align: center;">
-                    <h4 id="judul-hasil" style="margin: 0; color: #c2255c; font-size: 13px;"></h4>
-                    <p id="teks-hasil" style="margin: 3px 0 0 0; color: #4a4a4a; font-size: 11px;"></p>
-                </div>
-            </section>
-
-            <!-- BAGIAN 3: BASIC SKINCARE -->
-            <section id="basic-skincare" class="card-box">
-                <h2>🧴 Basic Skincare & Sunscreen</h2>
-                
-                <div style="display: flex; gap: 8px; margin-bottom: 10px;">
-                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #ffccd5; font-size: 11px;">
-                        <strong>☀️ Pagi Hari:</strong><br>Cleanser ➔ Moisturizer ➔ Sunscreen
-                    </div>
-                    <div style="flex: 1; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #ffccd5; font-size: 11px;">
-                        <strong>🌙 Malam Hari:</strong><br>Cleanser ➔ Treatment ➔ Moisturizer
-                    </div>
+                    </button>
                 </div>
 
-                <h3>☀️ Rahasia Sunscreen</h3>
-                <ul style="line-height: 1.5; font-size: 11px; padding-left: 18px; margin: 0 0 8px 0;">
-                    <li><strong>SPF:</strong> Melindungi dari UV B (penyebab kulit terbakar/sunburn).</li>
-                    <li><strong>PA:</strong> Melindungi dari UV A (penyebab penuaan dini & flek).</li>
-                </ul>
-
-                <div style="background-color: #e8f5e9; border-left: 4px solid #66bb6a; padding: 8px; border-radius: 8px; font-size: 11px; color: #2e7d32;">
-                    💡 <strong>Tips Reapply:</strong> Pakai sebanyak 2 ruas jari & lakukan reapply tiap 2-3 jam saat beraktivitas outdoor!
+                <div id="hasil-kuis">
+                    <h4 id="judul-hasil" style="margin: 0; color: #c2255c; font-size: 13.5px;"></h4>
+                    <p id="teks-hasil" style="margin: 4px 0 0 0; color: #4a4a4a; font-size: 12px;"></p>
                 </div>
-            </section>
+            </div>
 
-            <!-- BAGIAN 4: TABEL KANDUNGAN SKINCARE -->
-            <section id="kandungan" class="card-box">
-                <h2>🧪 Kandungan Bahan Aktif</h2>
+            <div id="kandungan" class="card scroll-target">
+                <div class="card-title">🧪 Kandungan Bahan Aktif Skincare</div>
                 <table>
                     <thead>
                         <tr>
@@ -255,35 +269,18 @@
                     </thead>
                     <tbody>
                         <tr><td><strong>Niacinamide</strong></td><td>Memperbaiki barrier & kontrol minyak</td></tr>
-                        <tr><td><strong>Salicylic Acid</strong></td><td>Mengatasi komedo & jerawat</td></tr>
+                        <tr><td><strong>Salicylic Acid (BHA)</strong></td><td>Eksfoliasi & meredakan jerawat</td></tr>
                         <tr><td><strong>Hyaluronic Acid</strong></td><td>Hidrasi mendalam & mengenyalkan</td></tr>
-                        <tr><td><strong>Vitamin C</strong></td><td>Mencerahkan & sebagai antioksidan</td></tr>
+                        <tr><td><strong>Vitamin C</strong></td><td>Mencerahkan kulit & antioksidan</td></tr>
                         <tr><td><strong>Ceramide</strong></td><td>Memperkuat skin barrier yang rusak</td></tr>
-                        <tr><td><strong>Retinoid</strong></td><td>Anti-aging & meratakan tekstur kulit</td></tr>
                     </tbody>
                 </table>
-            </section>
-
-            <!-- BAGIAN 5: EDUKASI MASALAH KULIT -->
-            <section id="edukasi" class="card-box">
-                <h2>⚠️ Masalah Kulit & Kesalahan Skincare</h2>
-                <h3>🚨 Masalah Kulit Populer:</h3>
-                <p style="font-size: 11px; margin: 0 0 8px 0;">Jerawat, komedo, kulit kusam, skin barrier rusak, dan flek hitam.</p>
-
-                <h3>❌ Kesalahan Umum yang Wajib Dihindari:</h3>
-                <ul style="line-height: 1.6; font-size: 11px; padding-left: 18px; margin: 0;">
-                    <li>Mencuci muka terlalu sering (bikin kulit makin kering/iritasi).</li>
-                    <li>Sering skip sunscreen di siang hari.</li>
-                    <li>Mencoba banyak produk baru secara bersamaan.</li>
-                    <li>Memencet jerawat sendiri dengan tangan kotor.</li>
-                </ul>
-            </section>
-
-            <p style="font-size: 11px; font-weight: bold; color: #7a525d; text-align: center; margin-top: 10px;">
+            </div>
+<p style="font-size: 11px; font-weight: bold; color: #5c3d46; text-align: center; margin-top: 5px;">
                 &copy; 2026 SkinCarely — Politeknik Kesehatan Jember
             </p>
-
         </div>
+
     </div>
 
     <script>
